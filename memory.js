@@ -21,10 +21,10 @@ function createGameBoard() {
 
     const cardFront = document.createElement('div');
     cardFront.classList.add('card-front');
-    cardFront.textContent = card;
 
     const cardBack = document.createElement('div');
     cardBack.classList.add('card-back');
+    cardBack.textContent = card;
 
     cardInner.appendChild(cardFront);
     cardInner.appendChild(cardBack);
