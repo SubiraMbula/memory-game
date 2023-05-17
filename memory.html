@@ -2,17 +2,22 @@
 <html>
 <head>
   <title>Memory Game</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="memory.css">
 </head>
 <body>
-  <h1>Memory Game</h1>
-  <div id="game-board">
-    <!-- Cards will be generated dynamically using JavaScript -->
+  <div id="game-stats">
+    <span>Moves: <span id="moves">0</span></span>
+    <span>Matched Pairs: <span id="matched-pairs">0</span></span>
+    <button id="reset-button">Reset</button>
   </div>
-  <p>Moves: <span id="moves">0</span></p>
-  <p>Matched Pairs: <span id="matched-pairs">0</span></p>
-  <button id="reset-button">Reset</button>
+  <div id="game-board">
+    <div class="card">
+      <div class="card-back"></div>
+      <div class="card-front"></div>
+    </div>
+    <!-- Repeat the above card structure for all cards -->
+  </div>
 
-  <script src="script.js"></script>
+  <script src="memory.js"></script>
 </body>
 </html>
