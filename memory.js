@@ -38,7 +38,11 @@ function createGameBoard() {
 
 // Function to flip a card
 function flipCard(card) {
-  if (!card.classList.contains('flipped') && !card.classList.contains('matched')) {
+  if (
+    !card.classList.contains('flipped') &&
+    !card.classList.contains('matched') &&
+    flippedCards.length < 2
+  ) {
     card.classList.add('flipped');
     flippedCards.push(card);
 
