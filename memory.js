@@ -1,3 +1,38 @@
+// Add the following code inside the startGame function
+
+// Set the time limit in seconds
+const timeLimit = 60;
+
+// Get the timer element from the DOM
+const timerElement = document.getElementById("timer");
+
+// Function to update the timer display
+function updateTimerDisplay(timeRemaining) {
+  const minutes = Math.floor(timeRemaining / 60);
+  const seconds = timeRemaining % 60;
+  timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+}
+
+// Function to handle the end of the game
+function endGame() {
+  clearInterval(timerInterval);
+  // Add your end game logic here
+}
+
+// Start the countdown timer
+let timeRemaining = timeLimit;
+updateTimerDisplay(timeRemaining);
+
+const timerInterval = setInterval(() => {
+  timeRemaining--;
+  updateTimerDisplay(timeRemaining);
+  
+  if (timeRemaining <= 0) {
+    endGame();
+  }
+}, 1000);
+
+
 // Array of cards (replace with your desired content)
 const cards = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮'];
 
