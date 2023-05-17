@@ -151,12 +151,17 @@ function endGame() {
   // Add your end game logic here
   const playAgain = confirm("Time's up! Do you want to play again?");
   if (playAgain) {
-    // Add logic to restart the game
-    startGame();
+    resetGame(); // Reset the game if the player chooses to play again
+    startGame(); // Start the game again
   } else {
-    // Close the window/tab
-    window.close();
+    window.close(); // Close the window/tab if the player chooses to exit
   }
+}
+
+// Function to reset the game
+function resetGame() {
+  // Add your logic to reset the game state to initial values
+  // For example, resetting the matched pairs, moves counter, card positions, etc.
 }
 
 // Start the countdown timer
