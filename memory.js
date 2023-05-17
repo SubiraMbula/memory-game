@@ -1,34 +1,3 @@
-// Set the time limit in seconds
-const timeLimit = 30;
-
-// Get the timer element from the DOM
-const timerElement = document.getElementById("timer");
-
-// Function to update the timer display
-function updateTimerDisplay(timeRemaining) {
-  const seconds = timeRemaining % 60;
-  timerElement.textContent = `00:${seconds.toString().padStart(2, "0")}`;
-}
-
-// Function to handle the end of the game
-function endGame() {
-  clearInterval(timerInterval);
-  // Add your end game logic here
-}
-
-// Start the countdown timer
-let timeRemaining = timeLimit;
-updateTimerDisplay(timeRemaining);
-
-const timerInterval = setInterval(() => {
-  timeRemaining--;
-  updateTimerDisplay(timeRemaining);
-  
-  if (timeRemaining <= 0) {
-    endGame();
-  }
-}, 1000);
-
 
 // Array of cards (replace with your desired content)
 const cards = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮'];
@@ -163,3 +132,35 @@ resetButton.addEventListener('click', resetGame);
 
 // Initialize the game
 createGameBoard();
+
+// Set the time limit in seconds
+const timeLimit = 40;
+
+// Get the timer element from the DOM
+const timerElement = document.getElementById("timer");
+
+// Function to update the timer display
+function updateTimerDisplay(timeRemaining) {
+  const seconds = timeRemaining % 60;
+  timerElement.textContent = `00:${seconds.toString().padStart(2, "0")}`;
+}
+
+// Function to handle the end of the game
+function endGame() {
+  clearInterval(timerInterval);
+  // Add your end game logic here
+  alert("Time's up! Game over."); // Display a prompt when the time is up
+}
+
+// Start the countdown timer
+let timeRemaining = timeLimit;
+updateTimerDisplay(timeRemaining);
+
+const timerInterval = setInterval(() => {
+  timeRemaining--;
+  updateTimerDisplay(timeRemaining);
+  
+  if (timeRemaining <= 0) {
+    endGame();
+  }
+}, 1000);
