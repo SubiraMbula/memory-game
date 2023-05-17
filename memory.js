@@ -1,16 +1,13 @@
-// Add the following code inside the startGame function
-
 // Set the time limit in seconds
-const timeLimit = 60;
+const timeLimit = 30;
 
 // Get the timer element from the DOM
 const timerElement = document.getElementById("timer");
 
 // Function to update the timer display
 function updateTimerDisplay(timeRemaining) {
-  const minutes = Math.floor(timeRemaining / 60);
   const seconds = timeRemaining % 60;
-  timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  timerElement.textContent = `00:${seconds.toString().padStart(2, "0")}`;
 }
 
 // Function to handle the end of the game
