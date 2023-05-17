@@ -134,7 +134,7 @@ resetButton.addEventListener('click', resetGame);
 createGameBoard();
 
 // Set the time limit in seconds
-const timeLimit = 40;
+const timeLimit = 60;
 
 // Get the timer element from the DOM
 const timerElement = document.getElementById("timer");
@@ -149,7 +149,7 @@ function updateTimerDisplay(timeRemaining) {
 function endGame() {
   clearInterval(timerInterval);
   // Add your end game logic here
-  alert("Time's up! Game over."); // Display a prompt when the time is up
+  alert("Time's up ! Game over."); // Display a prompt when the time is up
 }
 
 // Start the countdown timer
