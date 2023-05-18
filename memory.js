@@ -1,4 +1,3 @@
-
 // Array of cards (replace with your desired content)
 const cards = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮'];
 
@@ -153,18 +152,33 @@ function endGame() {
   if (playAgain) {
     resetGame();
     startGame();
+  } else {
+    window.close();
   }
 }
 
 // Function to reset the game
 function resetGame() {
-  // Add your logic to reset the game state to initial values
-  // For example, resetting the matched pairs, moves counter, card positions, etc.
-}
+    // Reset the game state to initial values
+    const gameBoard = document.getElementById('game-board');
+    gameBoard.innerHTML = '';
+  
+    const movesElement = document.getElementById('moves');
+    movesElement.textContent = '0';
+  
+    const matchedPairsElement = document.getElementById('matched-pairs');
+    matchedPairsElement.textContent = '0';
+  
+    flippedCards = [];
+  
+    createGameBoard();
+  }
+  
 
 // Function to start the game
 function startGame() {
-  // Add your game logic here
+  // Start the game logic
+  // Implement the necessary logic here
 }
 
 // Start the countdown timer
