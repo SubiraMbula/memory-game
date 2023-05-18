@@ -157,9 +157,8 @@ function endGame() {
   }
 }
 
-// Function to reset the game
+// Reset the game
 function resetGame() {
-    // Reset the game state to initial values
     const gameBoard = document.getElementById('game-board');
     gameBoard.innerHTML = '';
   
@@ -172,14 +171,29 @@ function resetGame() {
     flippedCards = [];
   
     createGameBoard();
+  
+    // Start the game
+    startGame();
+  
+    // Restart the timer
+    clearInterval(timerInterval);
+    timeRemaining = timeLimit;
+    updateTimerDisplay(timeRemaining);
+    timerInterval = setInterval(() => {
+      timeRemaining--;
+      updateTimerDisplay(timeRemaining);
+  
+      if (timeRemaining <= 0) {
+        endGame();
+      }
+    }, 1000);
   }
   
-
-// Function to start the game
-function startGame() {
-  // Start the game logic
-  // Implement the necessary logic here
-}
+  // Initialize the game
+  createGameBoard();
+  // Rest of the code...
+  
+  
 
 // Start the countdown timer
 let timeRemaining = timeLimit;
