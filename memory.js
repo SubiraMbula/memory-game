@@ -123,11 +123,20 @@ function resetGame() {
   flippedCards = [];
 
   createGameBoard();
-}
 
-// Event listener for the reset button
-const resetButton = document.getElementById('reset-button');
-resetButton.addEventListener('click', resetGame);
+  // Restart the timer
+  clearInterval(timerInterval);
+  timeRemaining = timeLimit;
+  updateTimerDisplay(timeRemaining);
+  timerInterval = setInterval(() => {
+    timeRemaining--;
+    updateTimerDisplay(timeRemaining);
+
+    if (timeRemaining <= 0) {
+      endGame();
+    }
+  }, 1000);
+}
 
 // Initialize the game
 createGameBoard();
@@ -151,49 +160,10 @@ function endGame() {
   const playAgain = confirm("Time's up! Do you want to play again?");
   if (playAgain) {
     resetGame();
-    startGame();
   } else {
     window.close();
   }
 }
-
-// Reset the game
-function resetGame() {
-    const gameBoard = document.getElementById('game-board');
-    gameBoard.innerHTML = '';
-  
-    const movesElement = document.getElementById('moves');
-    movesElement.textContent = '0';
-  
-    const matchedPairsElement = document.getElementById('matched-pairs');
-    matchedPairsElement.textContent = '0';
-  
-    flippedCards = [];
-  
-    createGameBoard();
-  
-    // Start the game
-    startGame();
-  
-    // Restart the timer
-    clearInterval(timerInterval);
-    timeRemaining = timeLimit;
-    updateTimerDisplay(timeRemaining);
-    timerInterval = setInterval(() => {
-      timeRemaining--;
-      updateTimerDisplay(timeRemaining);
-  
-      if (timeRemaining <= 0) {
-        endGame();
-      }
-    }, 1000);
-  }
-  
-  // Initialize the game
-  createGameBoard();
-  // Rest of the code...
-  
-  
 
 // Start the countdown timer
 let timeRemaining = timeLimit;
