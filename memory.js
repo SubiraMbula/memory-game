@@ -153,8 +153,6 @@ function endGame() {
   if (playAgain) {
     resetGame();
     startGame();
-  } else {
-    window.close(); // Close the tab if the player chooses to exit
   }
 }
 
