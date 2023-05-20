@@ -177,5 +177,3 @@ const timerInterval = setInterval(() => {
     endGame();
   }
 }, 1000);
-
-//
