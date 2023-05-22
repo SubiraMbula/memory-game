@@ -169,7 +169,7 @@ function endGame() {
   updateScoreSheet();
 
   // Add your end game logic here
-  const playAgain = confirm("Congratulations! You won the game!\nTime's up! Do you want to play again?");
+  const playAgain = confirm("Congratulations! \nTime's up! Do you want to play again?");
   if (playAgain) {
     resetGame();
   } else {
