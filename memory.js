@@ -1,5 +1,5 @@
 // Array of cards (replace with your desired content)
-const cards = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮'];
+const cards = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮', '🐙', '🐵', '🐔'];
 
 // Array to store flipped cards
 let flippedCards = [];
