@@ -1,62 +1,62 @@
 .card {
-    width: 80px;
-    height: 80px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    perspective: 1000px;
-    margin: 10px;
-  }
-  
-  .card .card-inner {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s;
-    transform-style: preserve-3d;
-  }
-  
-  .card.flipped .card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .card-front,
-  .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
-  
-  .card-front {
-    background-color: #3f51b5;
-    color: #ffffff;
-  }
-  
-  .card-back {
-    background-color: #ffffff;
-    border: 1px solid #3f51b5;
-    transform: rotateY(180deg);
-  }
-  
-  #game-board {
-    display: flex;
-    flex-wrap: wrap;
-    width: 400px;
-    margin: 0 auto;
-  }
-  
-  #game-stats {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  #reset-button {
-    cursor: pointer;
-  }
-  
+  width: 80px;
+  height: 80px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  perspective: 1000px;
+  margin: 10px;
+}
+
+.card .card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: #3f51b5;
+  color: #ffffff;
+}
+
+.card-back {
+  background-color: #ffffff;
+  border: 1px solid #3f51b5;
+  transform: rotateY(180deg);
+}
+
+#game-board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px; /* Adjust the width to accommodate 5 cards per row */
+  margin: 0 auto;
+  justify-content: center; /* Center the cards horizontally */
+}
+
+#game-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+#reset-button {
+  cursor: pointer;
+}
