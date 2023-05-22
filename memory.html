@@ -5,20 +5,16 @@
   <link rel="stylesheet" type="text/css" href="memory.css">
 </head>
 <body>
-  <div id="timer" class="timer">00:00</div>
-  
-  <div id="game-stats">
-    <span>Moves: <span id="moves">0</span></span>
-    <span>Matched Pairs: <span id="matched-pairs">0</span></span>
-    <button id="reset-button">Reset</button>
-  </div>
-  <div id="game-board">
-    <!-- Cards will be dynamically generated here -->
-  </div>
-
-  <div id="score-sheet">
-    <h2>Score Sheet</h2>
-    <ul id="scores-list"></ul>
+  <div class="game-container">
+    <div class="game-stats">
+      <span>Moves: <span id="moves">0</span></span>
+      <span>Matched Pairs: <span id="matched-pairs">0</span></span>
+      <button id="reset-button">Reset</button>
+    </div>
+    <div id="timer" class="timer">00:00</div>
+    <div id="game-board">
+      <!-- Cards will be dynamically generated here -->
+    </div>
   </div>
 
   <script src="memory.js"></script>

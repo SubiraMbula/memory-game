@@ -60,3 +60,17 @@
 #reset-button {
   cursor: pointer;
 }
+
+.game-container {
+  display: flex;
+}
+
+.game-stats {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.timer {
+  margin-top: 10px;
+}
