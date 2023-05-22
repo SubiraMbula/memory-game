@@ -4,6 +4,9 @@ const cards = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '
 // Array to store flipped cards
 let flippedCards = [];
 
+// Array to store game scores
+let gameScores = [];
+
 // Function to create the game board
 function createGameBoard() {
   const gameBoard = document.getElementById('game-board');
@@ -73,7 +76,7 @@ function checkForMatch() {
 
     if (document.querySelectorAll('.matched').length === cards.length * 2) {
       setTimeout(() => {
-        alert('Congratulations! You won the game!');
+        endGame();
       }, 500);
     }
   } else {
@@ -156,13 +159,34 @@ function updateTimerDisplay(timeRemaining) {
 // Function to handle the end of the game
 function endGame() {
   clearInterval(timerInterval);
+  
+  // Store the score in the game scores array
+  const moves = parseInt(document.getElementById('moves').textContent);
+  const matchedPairs = parseInt(document.getElementById('matched-pairs').textContent);
+  gameScores.push({ moves, matchedPairs });
+
+  // Update the score sheet
+  updateScoreSheet();
+
   // Add your end game logic here
-  const playAgain = confirm("Time's up! Do you want to play again?");
+  const playAgain = confirm("Congratulations! You won the game!\nTime's up! Do you want to play again?");
   if (playAgain) {
     resetGame();
   } else {
     window.close();
   }
+}
+
+// Function to update the score sheet
+function updateScoreSheet() {
+  const scoresList = document.getElementById('scores-list');
+  scoresList.innerHTML = '';
+
+  gameScores.forEach((score, index) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `Game ${index + 1}: Moves: ${score.moves}, Matched Pairs: ${score.matchedPairs}`;
+    scoresList.appendChild(listItem);
+  });
 }
 
 // Start the countdown timer
