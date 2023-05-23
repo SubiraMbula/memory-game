@@ -195,14 +195,4 @@ startButton.addEventListener('click', () => {
 
 let timerInterval;
 
-// Function to start the timer
-function startTimer() {
-  timerInterval = setInterval(() => {
-    timeRemaining--;
-    updateTimerDisplay(timeRemaining);
 
-    if (timeRemaining <= 0) {
-      endGame();
-    }
-  }, 1000);
-}
