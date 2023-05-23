@@ -134,11 +134,13 @@ function resetGame() {
   timeRemaining = timeLimit;
   updateTimerDisplay(timeRemaining);
   timerInterval = setInterval(() => {
-    timeRemaining--;
-    updateTimerDisplay(timeRemaining);
+    if (!isPaused) {
+      timeRemaining--;
+      updateTimerDisplay(timeRemaining);
 
-    if (timeRemaining <= 0) {
-      endGame();
+      if (timeRemaining <= 0) {
+        endGame();
+      }
     }
   }, 1000);
 }
@@ -152,7 +154,11 @@ const timeLimit = 60;
 // Get the timer element from the DOM
 const timerElement = document.getElementById('timer');
 
-
+// Function to update the timer display
+function updateTimerDisplay(timeRemaining) {
+  const seconds = timeRemaining % 60;
+  timerElement.textContent = `00:${seconds.toString().padStart(2, '0')}`;
+}
 
 // Function to handle the end of the game
 function endGame() {
@@ -189,11 +195,47 @@ startButton.addEventListener('click', () => {
   startTimer();
 });
 
-let timerInterval;
+const pauseButton = document.getElementById('pause-button');
+pauseButton.addEventListener('click', pauseTimer);
 
-function 
-{
-  
+const resumeButton = document.getElementById('resume-button');
+resumeButton.addEventListener('click', resumeTimer);
+
+let timerInterval;
+let isPaused = false;
+let pausedTimeRemaining = 0;
+
+// Function to start the timer
+function startTimer() {
+  timerInterval = setInterval(() => {
+    if (!isPaused) {
+      timeRemaining--;
+      updateTimerDisplay(timeRemaining);
+
+      if (timeRemaining <= 0) {
+        endGame();
+      }
+    }
+  }, 1000);
+}
+
+// Function to pause the timer
+function pauseTimer() {
+  if (!isPaused) {
+    clearInterval(timerInterval);
+    isPaused = true;
+    pausedTimeRemaining = timeRemaining;
+  }
+}
+
+// Function to resume the timer
+function resumeTimer() {
+  if (isPaused) {
+    isPaused = false;
+    timeRemaining = pausedTimeRemaining;
+    updateTimerDisplay(timeRemaining);
+    startTimer();
+  }
 }
 
 
