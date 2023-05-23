@@ -1,11 +1,8 @@
 // Array of cards (replace with your desired content)
-const cards = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮', '🐙', '🐵', '🐔'];
+const cards = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮', '🐔', '🐙', '🐵'];
 
 // Array to store flipped cards
 let flippedCards = [];
-
-// Array to store game scores
-let gameScores = [];
 
 // Function to create the game board
 function createGameBoard() {
@@ -15,7 +12,7 @@ function createGameBoard() {
   const shuffledCards = shuffle(cards.concat(cards));
 
   // Create a card element for each card
-  shuffledCards.forEach(card => {
+  shuffledCards.forEach((card, index) => {
     const cardElement = document.createElement('div');
     cardElement.classList.add('card');
 
@@ -36,6 +33,11 @@ function createGameBoard() {
     cardElement.addEventListener('click', () => flipCard(cardElement));
 
     gameBoard.appendChild(cardElement);
+
+    // Add line break to create a new row after every 5 cards
+    if ((index + 1) % 5 === 0) {
+      gameBoard.appendChild(document.createElement('br'));
+    }
   });
 }
 
@@ -76,7 +78,7 @@ function checkForMatch() {
 
     if (document.querySelectorAll('.matched').length === cards.length * 2) {
       setTimeout(() => {
-        endGame();
+        alert('Congratulations! You won the game!');
       }, 500);
     }
   } else {
@@ -145,31 +147,22 @@ function resetGame() {
 createGameBoard();
 
 // Set the time limit in seconds
-const timeLimit = 40;
+const timeLimit = 60;
 
 // Get the timer element from the DOM
-const timerElement = document.getElementById("timer");
+const timerElement = document.getElementById('timer');
 
 // Function to update the timer display
 function updateTimerDisplay(timeRemaining) {
   const seconds = timeRemaining % 60;
-  timerElement.textContent = `00:${seconds.toString().padStart(2, "0")}`;
+  timerElement.textContent = `00:${seconds.toString().padStart(2, '0')}`;
 }
 
 // Function to handle the end of the game
 function endGame() {
   clearInterval(timerInterval);
-  
-  // Store the score in the game scores array
-  const moves = parseInt(document.getElementById('moves').textContent);
-  const matchedPairs = parseInt(document.getElementById('matched-pairs').textContent);
-  gameScores.push({ moves, matchedPairs });
-
-  // Update the score sheet
-  updateScoreSheet();
-
   // Add your end game logic here
-  const playAgain = confirm("Congratulations! \nTime's up! Do you want to play again?");
+  const playAgain = confirm("Time's up 😢 ಥ_ಥ! Do you want to play again? 🤷‍♀️🤷‍♂️");
   if (playAgain) {
     resetGame();
   } else {
@@ -193,11 +186,23 @@ function updateScoreSheet() {
 let timeRemaining = timeLimit;
 updateTimerDisplay(timeRemaining);
 
-const timerInterval = setInterval(() => {
-  timeRemaining--;
-  updateTimerDisplay(timeRemaining);
+const startButton = document.getElementById('start-button');
+startButton.addEventListener('click', () => {
+  resetGame();
+  startButton.style.display = 'none';
+  startTimer();
+});
 
-  if (timeRemaining <= 0) {
-    endGame();
-  }
-}, 1000);
+let timerInterval;
+
+// Function to start the timer
+function startTimer() {
+  timerInterval = setInterval(() => {
+    timeRemaining--;
+    updateTimerDisplay(timeRemaining);
+
+    if (timeRemaining <= 0) {
+      endGame();
+    }
+  }, 1000);
+}
