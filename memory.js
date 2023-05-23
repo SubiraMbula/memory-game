@@ -152,11 +152,7 @@ const timeLimit = 60;
 // Get the timer element from the DOM
 const timerElement = document.getElementById('timer');
 
-// Function to update the timer display
-function updateTimerDisplay(timeRemaining) {
-  const seconds = timeRemaining % 60;
-  timerElement.textContent = `00:${seconds.toString().padStart(2, '0')}`;
-}
+
 
 // Function to handle the end of the game
 function endGame() {
