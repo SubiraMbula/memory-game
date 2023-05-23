@@ -51,25 +51,10 @@
   justify-content: center; /* Center the cards horizontally */
 }
 
-#game-stats {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-#reset-button {
-  cursor: pointer;
-}
-
 .game-container {
   display: flex;
 }
 
-.game-stats {
-  display: flex;
-  flex-direction: column;
-  margin-right: 20px;
-}
 
 .timer {
   margin-top: 10px;
