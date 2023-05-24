@@ -183,19 +183,6 @@ window.addEventListener('beforeunload', function (e) {
 });
 
 
-
-// Function to update the score sheet
-function updateScoreSheet() {
-  const scoresList = document.getElementById('scores-list');
-  scoresList.innerHTML = '';
-
-  gameScores.forEach((score, index) => {
-    const listItem = document.createElement('li');
-    listItem.textContent = `Game ${index + 1}: Moves: ${score.moves}, Matched Pairs: ${score.matchedPairs}`;
-    scoresList.appendChild(listItem);
-  });
-}
-
 // Start the countdown timer
 let timeRemaining = timeLimit;
 updateTimerDisplay(timeRemaining);
@@ -206,6 +193,20 @@ startButton.addEventListener('click', () => {
   startButton.style.display = 'none';
   startTimer();
 });
+
+// Function to handle the exit game button click
+function exitGame() {
+  const confirmExit = confirm("Are you sure you want to exit the game?");
+  if (confirmExit) {
+    window.close(); // Close the window
+  }
+}
+
+// Get the exit game button element from the DOM
+const exitButton = document.getElementById('exit-button');
+
+// Add click event listener to the exit game button
+exitButton.addEventListener('click', exitGame);
 
 const pauseButton = document.getElementById('pause-button');
 pauseButton.addEventListener('click', pauseTimer);
