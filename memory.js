@@ -171,14 +171,13 @@ function endGame() {
 }
 
 // Event listener for beforeunload event
-window.addEventListener("beforeunload", function (event) {
+window.onbeforeunload = function (event) {
   // Check if the game is in progress
   if (timerInterval) {
     // Show confirmation prompt
-    event.preventDefault();
-    event.returnValue = ""; // For older browsers
+    return "Are you sure you want to leave? Your progress will be lost.";
   }
-});
+};
 
 
 // Function to update the score sheet
