@@ -171,8 +171,6 @@ function endGame() {
     // Check if the user clicked cancel
     if (playAgain === null) {
       window.location.href = window.location.href; // Redirect to the same page
-    } else {
-      window.close();
     }
   }
 }
