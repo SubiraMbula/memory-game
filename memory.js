@@ -171,13 +171,17 @@ function endGame() {
 }
 
 // Event listener for beforeunload event
-window.onbeforeunload = function (event) {
-  // Check if the game is in progress
-  if (timerInterval) {
-    // Show confirmation prompt
-    return "Are you sure you want to leave? Your progress will be lost.";
-  }
-};
+window.addEventListener('beforeunload', function (e) {
+  // Cancel the default behavior of the prompt
+  e.preventDefault();
+
+  // Chrome requires the returnValue property to be set
+  e.returnValue = '';
+
+  // Optionally, you can show a custom message instead of the default prompt
+  return '';
+});
+
 
 
 // Function to update the score sheet
