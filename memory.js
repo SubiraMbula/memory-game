@@ -167,13 +167,18 @@ function endGame() {
   const playAgain = confirm("Time's up 😢 ಥ_ಥ! Do you want to play again? 🤷‍♀️🤷‍♂️");
   if (playAgain) {
     resetGame();
-  } else {
-    // Check if the user clicked cancel
-    if (playAgain === null) {
-      window.location.href = window.location.href; // Redirect to the same page
-    }
   }
 }
+
+// Event listener for beforeunload event
+window.addEventListener("beforeunload", function (event) {
+  // Check if the game is in progress
+  if (timerInterval) {
+    // Show confirmation prompt
+    event.preventDefault();
+    event.returnValue = ""; // For older browsers
+  }
+});
 
 
 // Function to update the score sheet
