@@ -167,29 +167,11 @@ function endGame() {
   const playAgain = confirm("Time's up 😢 ಥ_ಥ! Do you want to play again? 🤷‍♀️🤷‍♂️");
   if (playAgain) {
     resetGame();
-  }
-  else {
+  } else {
     // User clicked "Cancel" on the confirm dialog
-    // You can choose to perform any desired action here, or simply do nothing
+    // Perform any desired action here or leave it empty
   }
 }
-
-// // Function to handle the beforeunload event
-// function handleBeforeUnload(event) {
-//   // Check if the user wants to leave the page
-//   if (!event.clientY && event.clientY !== 0) {
-//     // User clicked Cancel
-//     event.preventDefault();
-//     event.stopPropagation();
-
-//     // Navigate back to the previous page
-//     history.back();
-//   }
-// }
-
-// // Event listener for beforeunload event
-// window.addEventListener('beforeunload', handleBeforeUnload);
-
 
 // Start the countdown timer
 let timeRemaining = timeLimit;
