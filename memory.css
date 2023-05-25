@@ -59,3 +59,57 @@
 .timer {
   margin-top: 10px;
 }
+
+/* Styles for the game board */
+#game-board {
+  width: 600px;
+  margin: 0 auto;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card.flipped {
+  background-color: #ddd;
+}
+
+.card.matched {
+  background-color: #a1dd70;
+}
+
+/* Styles for timer, moves counter, and matched pairs counter */
+#timer, #moves, #matched-pairs {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Styles for buttons */
+.button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #game-board {
+    width: 100%;
+  }
+}
