@@ -170,17 +170,21 @@ function endGame() {
   }
 }
 
+// // Function to handle the beforeunload event
+// function handleBeforeUnload(event) {
+//   // Check if the user wants to leave the page
+//   if (!event.clientY && event.clientY !== 0) {
+//     // User clicked Cancel
+//     event.preventDefault();
+//     event.stopPropagation();
+
+//     // Navigate back to the previous page
+//     history.back();
+//   }
+// }
+
 // // Event listener for beforeunload event
-// window.addEventListener('beforeunload', function (e) {
-//   // Cancel the default behavior of the prompt
-//   e.preventDefault();
-
-//   // Chrome requires the returnValue property to be set
-//   e.returnValue = '';
-
-//   // Optionally, you can show a custom message instead of the default prompt
-//   return '';
-// });
+// window.addEventListener('beforeunload', handleBeforeUnload);
 
 
 // Start the countdown timer
