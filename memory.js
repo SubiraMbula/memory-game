@@ -170,17 +170,17 @@ function endGame() {
   }
 }
 
-// Event listener for beforeunload event
-window.addEventListener('beforeunload', function (e) {
-  // Cancel the default behavior of the prompt
-  e.preventDefault();
+// // Event listener for beforeunload event
+// window.addEventListener('beforeunload', function (e) {
+//   // Cancel the default behavior of the prompt
+//   e.preventDefault();
 
-  // Chrome requires the returnValue property to be set
-  e.returnValue = '';
+//   // Chrome requires the returnValue property to be set
+//   e.returnValue = '';
 
-  // Optionally, you can show a custom message instead of the default prompt
-  return '';
-});
+//   // Optionally, you can show a custom message instead of the default prompt
+//   return '';
+// });
 
 
 // Start the countdown timer
