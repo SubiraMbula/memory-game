@@ -168,6 +168,10 @@ function endGame() {
   if (playAgain) {
     resetGame();
   }
+  else {
+    // User clicked "Cancel" on the confirm dialog
+    // You can choose to perform any desired action here, or simply do nothing
+  }
 }
 
 // // Function to handle the beforeunload event
