@@ -64,32 +64,27 @@
 #timer, #moves, #matched-pairs {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
+  color: white;
   margin-bottom: 10px;
 }
 
 /* Styles for buttons */
-.button {
-  background-color: #4CAF50; /* Green */
+button {
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   margin: 4px 2px;
-  cursor: pointer;
 }
 
-#start-button {background-color: rgb(20, 190, 20);} /* Blue */
-#pause-button {background-color: rgb(180, 6, 180);} /* Red */ 
-#resume-button {background-color: rgb(100, 75, 212); color: black;} /* Gray */ 
-#exit-button {background-color: red;} /* Black */
+#start-button {background-color: rgb(20, 190, 20);} 
+#pause-button {background-color: rgb(180, 6, 180);}  
+#resume-button {background-color: rgb(144, 124, 231); color: black;} 
+#exit-button {background-color: red;} 
 
-.button:hover {
-  background-color: #a1b7d8;
-}
 
 /* Responsive design */
 @media (max-width: 768px) {
