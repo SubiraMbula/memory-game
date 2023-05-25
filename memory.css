@@ -82,10 +82,10 @@
   cursor: pointer;
 }
 
-.button2 {background-color: #008CBA;} /* Blue */
-.button3 {background-color: #f44336;} /* Red */ 
-.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
-.button5 {background-color: #555555;} /* Black */
+#start-button {background-color: rgb(20, 190, 20);} /* Blue */
+#pause-button {background-color: rgb(180, 6, 180);} /* Red */ 
+#resume-button {background-color: rgb(100, 75, 212); color: black;} /* Gray */ 
+#exit-button {background-color: red;} /* Black */
 
 .button:hover {
   background-color: #a1b7d8;
