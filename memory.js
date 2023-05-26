@@ -177,36 +177,25 @@ function updateTimerDisplay(timeRemaining) {
 function endGame() {
   clearInterval(timerInterval);
   // Add your end game logic here
-  
-  // Create a custom modal or dialog box
-  const modal = document.createElement('div');
-  modal.classList.add('modal');
 
-  const message = document.createElement('div');
-  message.textContent = "Time's up 😢 ಥ_ಥ! Do you want to play again? 🤷‍♀️🤷‍♂️";
-  modal.appendChild(message);
+  // Show the modal
+  const modal = document.getElementById('modal');
+  modal.style.display = 'block';
 
-  const buttons = document.createElement('div');
-  const playAgainButton = document.createElement('button');
-  playAgainButton.textContent = "Play Again";
+  // Play Again button
+  const playAgainButton = document.getElementById('play-again-button');
   playAgainButton.addEventListener('click', resetGame);
-  buttons.appendChild(playAgainButton);
 
-  const cancelButton = document.createElement('button');
-  cancelButton.textContent = "Cancel";
+  // Cancel button
+  const cancelButton = document.getElementById('cancel-button');
   cancelButton.addEventListener('click', closeModal);
-  buttons.appendChild(cancelButton);
-
-  modal.appendChild(buttons);
-
-  // Display the modal on the page
-  document.body.appendChild(modal);
 
   // Function to close the modal
   function closeModal() {
-    document.body.removeChild(modal);
+    modal.style.display = 'none';
   }
 }
+
 
 
 // Start the countdown timer
