@@ -177,23 +177,21 @@ function updateTimerDisplay(timeRemaining) {
 function endGame() {
   clearInterval(timerInterval);
   // Add your end game logic here
-
-  // Show the modal
   const modal = document.getElementById('modal');
   modal.style.display = 'block';
 
-  // Play Again button
   const playAgainButton = document.getElementById('play-again-button');
-  playAgainButton.addEventListener('click', resetGame);
-
-  // Cancel button
   const cancelButton = document.getElementById('cancel-button');
-  cancelButton.addEventListener('click', closeModal);
 
-  // Function to close the modal
-  function closeModal() {
+  playAgainButton.addEventListener('click', () => {
     modal.style.display = 'none';
-  }
+    resetGame();
+  });
+
+  cancelButton.addEventListener('click', () => {
+    modal.style.display = 'none';
+    // Perform any desired action here or leave it empty
+  });
 }
 
 
