@@ -160,19 +160,53 @@ function updateTimerDisplay(timeRemaining) {
   timerElement.textContent = `00:${seconds.toString().padStart(2, '0')}`;
 }
 
+// // Function to handle the end of the game
+// function endGame() {
+//   clearInterval(timerInterval);
+//   // Add your end game logic here
+//   const playAgain = confirm("Time's up 😢 ಥ_ಥ! Do you want to play again? 🤷‍♀️🤷‍♂️");
+//   if (playAgain) {
+//     resetGame();
+//   } else {
+//     // User clicked "Cancel" on the confirm dialog
+//     // Perform any desired action here or leave it empty
+//   }
+// }
+
 // Function to handle the end of the game
 function endGame() {
   clearInterval(timerInterval);
   // Add your end game logic here
-  const playAgain = confirm("Time's up 😢 ಥ_ಥ! Do you want to play again? 🤷‍♀️🤷‍♂️");
-  if (playAgain) {
-    resetGame();
-  } else {
-    // User clicked "Cancel" on the confirm dialog
-    // Perform any desired action here or leave it empty
+  
+  // Create a custom modal or dialog box
+  const modal = document.createElement('div');
+  modal.classList.add('modal');
+
+  const message = document.createElement('div');
+  message.textContent = "Time's up 😢 ಥ_ಥ! Do you want to play again? 🤷‍♀️🤷‍♂️";
+  modal.appendChild(message);
+
+  const buttons = document.createElement('div');
+  const playAgainButton = document.createElement('button');
+  playAgainButton.textContent = "Play Again";
+  playAgainButton.addEventListener('click', resetGame);
+  buttons.appendChild(playAgainButton);
+
+  const cancelButton = document.createElement('button');
+  cancelButton.textContent = "Cancel";
+  cancelButton.addEventListener('click', closeModal);
+  buttons.appendChild(cancelButton);
+
+  modal.appendChild(buttons);
+
+  // Display the modal on the page
+  document.body.appendChild(modal);
+
+  // Function to close the modal
+  function closeModal() {
+    document.body.removeChild(modal);
   }
 }
-
 
 
 // Start the countdown timer
