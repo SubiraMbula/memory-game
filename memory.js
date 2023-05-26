@@ -173,6 +173,8 @@ function endGame() {
   }
 }
 
+
+
 // Start the countdown timer
 let timeRemaining = timeLimit;
 updateTimerDisplay(timeRemaining);
