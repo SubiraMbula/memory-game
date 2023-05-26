@@ -160,18 +160,6 @@ function updateTimerDisplay(timeRemaining) {
   timerElement.textContent = `00:${seconds.toString().padStart(2, '0')}`;
 }
 
-// Function to handle the end of the game
-function endGame() {
-  clearInterval(timerInterval);
-  // Add your end game logic here
-  const playAgain = confirm("Time's up 😢 ಥ_ಥ! Do you want to play again? 🤷‍♀️🤷‍♂️");
-  if (playAgain) {
-    resetGame();
-  } else {
-    // User clicked "Cancel" on the confirm dialog
-    // Perform any desired action here or leave it empty
-  }
-}
 
 // Start the countdown timer
 let timeRemaining = timeLimit;
@@ -191,6 +179,20 @@ function exitGame() {
     window.close(); // Close the window
   }
 }
+
+// Function to handle the end of the game
+function endGame() {
+  clearInterval(timerInterval);
+  // Add your end game logic here
+  const playAgain = confirm("Congratulations! You won the game! Do you want to play again?");
+  if (playAgain) {
+    resetGame();
+  } else {
+    // User clicked "Cancel" on the confirm dialog
+    // Perform any desired action here or leave it empty
+  }
+}
+
 
 // Get the exit game button element from the DOM
 const exitButton = document.getElementById('exit-button');
