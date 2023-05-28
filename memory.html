@@ -25,18 +25,19 @@
       <!-- Cards will be dynamically generated here -->
     </div>
   </div>
-  <div class="prompt-container">
-    <!-- prompt section -->
-    <div class="modal" id="modal">
-      <div class="modal-content">
-        <div class="modal-message">Time's up 😢 ಥ_ಥ! Do you want to play again? 🤷‍♀️🤷‍♂️</div>
-        <div class="modal-buttons">
-          <button class="modal-button" id="play-again-button">Play Again</button>
-          <button class="modal-button" id="cancel-button">Cancel</button>
-        </div>
-      </div>
-    </div>
+  <div class="modal-overlay"></div>
+<div class="modal">
+  <div class="modal-message">
+    <!-- prompt message -->
+    Time's up 😢 ಥ_ಥ! Do you want to play again? 
   </div>
+  <div class="modal-buttons">
+    <!-- prompt buttons -->
+    <button class="modal-button" id="play-again-button">Play Again</button>
+    <button class="modal-button" id="cancel-button">Cancel</button>
+  </div>
+</div>
+
   
   </div>
   <script src="memory.js"></script>
