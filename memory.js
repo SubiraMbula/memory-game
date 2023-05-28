@@ -160,41 +160,18 @@ function updateTimerDisplay(timeRemaining) {
   timerElement.textContent = `00:${seconds.toString().padStart(2, '0')}`;
 }
 
-// // Function to handle the end of the game
-// function endGame() {
-//   clearInterval(timerInterval);
-//   // Add your end game logic here
-//   const playAgain = confirm("Time's up 😢 ಥ_ಥ! Do you want to play again? 🤷‍♀️🤷‍♂️");
-//   if (playAgain) {
-//     resetGame();
-//   } else {
-//     // User clicked "Cancel" on the confirm dialog
-//     // Perform any desired action here or leave it empty
-//   }
-// }
-
 // Function to handle the end of the game
 function endGame() {
   clearInterval(timerInterval);
   // Add your end game logic here
-  const modal = document.getElementById('modal');
-  modal.style.display = 'block';
-
-  const playAgainButton = document.getElementById('play-again-button');
-  const cancelButton = document.getElementById('cancel-button');
-
-  playAgainButton.addEventListener('click', () => {
-    modal.style.display = 'none';
+  const playAgain = confirm("Time's up 😢 ಥ_ಥ! Do you want to play again? 🤷‍♀️🤷‍♂️");
+  if (playAgain) {
     resetGame();
-  });
-
-  cancelButton.addEventListener('click', () => {
-    modal.style.display = 'none';
+  } else {
+    // User clicked "Cancel" on the confirm dialog
     // Perform any desired action here or leave it empty
-  });
+  }
 }
-
-
 
 // Start the countdown timer
 let timeRemaining = timeLimit;
