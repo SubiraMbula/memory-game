@@ -150,27 +150,28 @@ createGameBoard();
 
 // Set the time limit in seconds
 const timeLimit = 60;
-let timeRemaining = timeLimit;
-let timerInterval;
-let isPaused = false;
+
+// Get the timer element from the DOM
+const timerElement = document.getElementById('timer');
 
 // Function to update the timer display
-function updateTimerDisplay(time) {
-  const timerElement = document.getElementById('timer');
-  timerElement.textContent = time;
+function updateTimerDisplay(timeRemaining) {
+  const seconds = timeRemaining % 60;
+  timerElement.textContent = `00:${seconds.toString().padStart(2, '0')}`;
 }
 
-// Start the timer
-timerInterval = setInterval(() => {
-  if (!isPaused) {
-    timeRemaining--;
-    updateTimerDisplay(timeRemaining);
-
-    if (timeRemaining <= 0) {
-      endGame();
-    }
-  }
-}, 1000);
+// // Function to handle the end of the game
+// function endGame() {
+//   clearInterval(timerInterval);
+//   // Add your end game logic here
+//   const playAgain = confirm("Time's up 😢 ಥ_ಥ! Do you want to play again? 🤷‍♀️🤷‍♂️");
+//   if (playAgain) {
+//     resetGame();
+//   } else {
+//     // User clicked "Cancel" on the confirm dialog
+//     // Perform any desired action here or leave it empty
+//   }
+// }
 
 // Function to handle the end of the game
 function endGame() {
@@ -193,4 +194,74 @@ function endGame() {
   });
 }
 
-// ...
+
+
+// Start the countdown timer
+let timeRemaining = timeLimit;
+updateTimerDisplay(timeRemaining);
+
+const startButton = document.getElementById('start-button');
+startButton.addEventListener('click', () => {
+  resetGame();
+  startButton.style.display = 'none';
+  startTimer();
+});
+
+// Function to handle the exit game button click
+function exitGame() {
+  const confirmExit = confirm("Are you sure you want to exit the game?");
+  if (confirmExit) {
+    window.close(); // Close the window
+  }
+}
+
+// Get the exit game button element from the DOM
+const exitButton = document.getElementById('exit-button');
+
+// Add click event listener to the exit game button
+exitButton.addEventListener('click', exitGame);
+
+const pauseButton = document.getElementById('pause-button');
+pauseButton.addEventListener('click', pauseTimer);
+
+const resumeButton = document.getElementById('resume-button');
+resumeButton.addEventListener('click', resumeTimer);
+
+let timerInterval;
+let isPaused = false;
+let pausedTimeRemaining = 0;
+
+// Function to start the timer
+function startTimer() {
+  timerInterval = setInterval(() => {
+    if (!isPaused) {
+      timeRemaining--;
+      updateTimerDisplay(timeRemaining);
+
+      if (timeRemaining <= 0) {
+        endGame();
+      }
+    }
+  }, 1000);
+}
+
+// Function to pause the timer
+function pauseTimer() {
+  if (!isPaused) {
+    clearInterval(timerInterval);
+    isPaused = true;
+    pausedTimeRemaining = timeRemaining;
+  }
+}
+
+// Function to resume the timer
+function resumeTimer() {
+  if (isPaused) {
+    isPaused = false;
+    timeRemaining = pausedTimeRemaining;
+    updateTimerDisplay(timeRemaining);
+    startTimer();
+  }
+}
+
+
